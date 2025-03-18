@@ -10,12 +10,22 @@ const firebaseConfig = {
 };
 
 // Firebase初期化（既に初期化されていない場合のみ）
-try {
-  if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
+if (typeof firebase !== 'undefined') {
+  try {
+    // firebase.apps が存在するか確認（古いバージョンのFirebase SDK用）
+    if (firebase.apps && firebase.apps.length === 0) {
+      firebase.initializeApp(firebaseConfig);
+    } else if (!firebase.apps) {
+      // firebase.apps が存在しない場合の対応（より古いバージョン用）
+      try {
+        firebase.app();
+      } catch (e) {
+        firebase.initializeApp(firebaseConfig);
+      }
+    }
+  } catch (e) {
+    console.error("Firebase初期化エラー:", e);
   }
-} catch (e) {
-  console.error("Firebase初期化エラー:", e);
 }
 // DOM要素の取得
 const loginScreen = document.getElementById('login-screen');
@@ -58,9 +68,10 @@ const defaultUsers = [
 document.addEventListener('DOMContentLoaded', () => {
     // Firebase初期化チェック
     if (typeof firebase !== 'undefined') {
-        // Firebase初期化
+        // Firebase SDKがロードされている
         try {
-            firebase.initializeApp(firebaseConfig);
+            // Firebase が初期化されているかチェック
+            firebase.app();
             setupInstructionsDiv.style.display = 'none'; // 設定済みなら説明を非表示
         } catch (e) {
             console.error("Firebase初期化エラー:", e);
