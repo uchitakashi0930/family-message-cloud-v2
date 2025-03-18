@@ -11,7 +11,6 @@ const firebaseConfig = {
 
 // Firebase初期化
 firebase.initializeApp(firebaseConfig);
-</script>
 
 // DOM要素の取得
 const loginScreen = document.getElementById('login-screen');
