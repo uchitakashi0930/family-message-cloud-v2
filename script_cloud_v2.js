@@ -16,10 +16,21 @@
     appId: "1:239470163475:web:f6ab310e0cf80ce628f1e6",
     measurementId: "G-VEK6X90431"
   };
+// Firebase設定
+const firebaseConfig = {
+  apiKey: "AIzaSyDVfREQoJf721b3GjGdEwFy4oSaMkIDqks",
+  authDomain: "family-message-cloud-v2.firebaseapp.com",
+  projectId: "family-message-cloud-v2",
+  storageBucket: "family-message-cloud-v2.firebasestorage.app",
+  messagingSenderId: "239470163475",
+  appId: "1:239470163475:web:f6ab310e0cf80ce628f1e6",
+  measurementId: "G-VEK6X90431"
+};
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+// Firebase初期化
+firebase.initializeApp(firebaseConfig);
+
+const analytics = getAnalytics(app);
 </script>
 
 // DOM要素の取得
