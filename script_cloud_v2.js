@@ -9,9 +9,14 @@ const firebaseConfig = {
   measurementId: "G-VEK6X90431"
 };
 
-// Firebase初期化
-firebase.initializeApp(firebaseConfig);
-
+// Firebase初期化（既に初期化されていない場合のみ）
+try {
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+} catch (e) {
+  console.error("Firebase初期化エラー:", e);
+}
 // DOM要素の取得
 const loginScreen = document.getElementById('login-screen');
 const mainScreen = document.getElementById('main-screen');
