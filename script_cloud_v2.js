@@ -1,27 +1,9 @@
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyDVfREQoJf721b3GjGdEwFy4oSaMkIDqks",
-    authDomain: "family-message-cloud-v2.firebaseapp.com",
-    projectId: "family-message-cloud-v2",
-    storageBucket: "family-message-cloud-v2.firebasestorage.app",
-    messagingSenderId: "239470163475",
-    appId: "1:239470163475:web:f6ab310e0cf80ce628f1e6",
-    measurementId: "G-VEK6X90431"
-  };
 // Firebase設定
 const firebaseConfig = {
   apiKey: "AIzaSyDVfREQoJf721b3GjGdEwFy4oSaMkIDqks",
   authDomain: "family-message-cloud-v2.firebaseapp.com",
   projectId: "family-message-cloud-v2",
-  storageBucket: "family-message-cloud-v2.firebasestorage.app",
+  storageBucket: "family-message-cloud-v2.appspot.com", // これを修正する
   messagingSenderId: "239470163475",
   appId: "1:239470163475:web:f6ab310e0cf80ce628f1e6",
   measurementId: "G-VEK6X90431"
@@ -29,8 +11,6 @@ const firebaseConfig = {
 
 // Firebase初期化
 firebase.initializeApp(firebaseConfig);
-
-const analytics = getAnalytics(app);
 </script>
 
 // DOM要素の取得
